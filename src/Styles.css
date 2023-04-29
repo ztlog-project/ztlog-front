@@ -4577,6 +4577,11 @@ fieldset:disabled .btn {
   white-space: nowrap;
 }
 
+.show > .navbar-nav {
+  padding-top: 10px !important;
+  padding-bottom: 0px !important;
+}
+
 .navbar-nav {
   display: flex;
   flex-direction: column;
@@ -12138,7 +12143,7 @@ blockquote {
   #mainNav.is-fixed {
     /* when the user scrolls down, we hide the header right above the viewport */
     position: fixed;
-    top: -83px;
+    top: -95px;
     transition: transform 0.2s;
     border-bottom: 1px solid white;
     background-color: rgba(255, 255, 255, 0.9);
@@ -12500,6 +12505,13 @@ header.masthead .post-heading .meta a {
   }
 }
 
+.author_profile {
+  margin: auto;
+  display: table;
+  vertical-align: middle;
+  text-align: center;
+}
+
 .author__avatar {
   display: table-cell;
   vertical-align: top;
@@ -12568,8 +12580,8 @@ header.masthead .post-heading .meta a {
 
 @media (min-width: 64em) {
   .author__name {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
     text-align: center;
   }
 }
@@ -12606,7 +12618,6 @@ header.masthead .post-heading .meta a {
 
 .author__urls-wrapper {
   font-size: 1rem;
-  padding: 0px 40px;
   text-align: left;
   position: relative;
   display: table-cell;
@@ -12625,6 +12636,7 @@ header.masthead .post-heading .meta a {
 @media (min-width: 64em) {
   .author__urls-wrapper {
     display: block;
+    padding: 0px 20px;
   }
 }
 
@@ -12775,7 +12787,7 @@ header.masthead .post-heading .meta a {
 .search {
   position: relative;
   width: 150px;
-  height: 78px;
+  /* height: 78px; */
 }
 
 .search input {

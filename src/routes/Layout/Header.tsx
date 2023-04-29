@@ -1,39 +1,54 @@
 import logo from "../../pages/images/logo.png";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import React, { useState, useEffect } from "react";
+import { faMagnifyingGlass, faBars } from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect } from "react";
 
 export default function Header() {
-  // const currentTop = document.body.getBoundingClientRect().top * -1;
+  // scroll fixed
+  const [isFixed, setFixed] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const headerFixed = () => {
+    const currentScrollPosition = window.pageYOffset;
+    if (currentScrollPosition > 0) {
+      setScrollY(window.pageYOffset);
+      setFixed(true);
+    } else {
+      setScrollY(window.pageYOffset);
+      setFixed(false);
+    }
+  };
 
-  // const [navActive, setNavActive] = useState(false);
-  // const [scrollY, setScrollY] = useState(0);
-  // const [scrollActive, setScrollActive] = useState(false);
+  // menu click -> open
+  const [isAriaExpanded, setAriaExpanded] = useState(false);
+  const [isShow, setShow] = useState(false);
 
-  // const scrollFixed = () => {
-  //   if (scrollY > 100) {
-  //     setScrollY(window.pageYOffset);
-  //     setScrollActive(true);
-  //   } else {
-  //     setScrollY(window.pageYOffset);
-  //     setScrollActive(false);
-  //   }
-  // };
+  const menuCollapsed = () => {
+    setAriaExpanded(!isAriaExpanded);
+    setShow(!isShow);
+  };
 
-  // useEffect(() => {
-  //   const scrollListener = () => {
-  //     window.addEventListener("scroll", scrollFixed);
-  //   };
-  //   scrollListener();
-  //   return () => {
-  //     window.removeEventListener("scroll", scrollFixed);
-  //   };
-  // });
+  useEffect(() => {
+    const scrollListener = () => {
+      window.addEventListener("scroll", headerFixed);
+    };
+    scrollListener();
+    return () => {
+      window.removeEventListener("scroll", headerFixed);
+    };
+  });
 
   return (
     <header>
-      <nav id="mainNav" className="navbar-light navbar navbar-expand-lg">
+      <nav
+        id="mainNav"
+        className={
+          isFixed
+            ? "is-fixed is-visible navbar-light navbar navbar-expand-lg"
+            : "navbar-light navbar navbar-expand-lg"
+        }
+      >
+        {/* <nav className="navbar-light navbar navbar-expand-lg"> */}
         <div className="container px-4 px-lg-5">
           <Link to="/" className="navbar-brand">
             <img src={logo} alt="logo" style={{ width: "50px" }} />
@@ -44,12 +59,21 @@ export default function Header() {
             data-bs-toggle="collapse"
             data-bs-target="#navbarResponsive"
             aria-controls="navbarResponsive"
-            aria-expanded="false"
+            aria-expanded={isAriaExpanded ? true : false}
             aria-label="Toggle navigation"
+            onClick={menuCollapsed}
           >
-            <i className="fas fa-bars"></i>
+            <FontAwesomeIcon icon={faBars} />
           </button>
-          <div className="collapse navbar-collapse" id="navbarResponsive">
+          {/* Menu */}
+          <div
+            className={
+              isShow
+                ? "collapse navbar-collapse show"
+                : "collapse navbar-collapse"
+            }
+            id="navbarResponsive"
+          >
             <ul className="navbar-nav ms-auto py-4 py-lg-0">
               <li className="nav-item">
                 <Link to="/about" className="nav-link px-lg-3 py-3 py-lg-4">

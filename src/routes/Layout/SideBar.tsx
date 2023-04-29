@@ -6,16 +6,19 @@ import { faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 export default function SideBar() {
   return (
-    <aside className="sidebar col-md-4 col-lg-3 col-xl-2">
-      <div className="author__avatar">
-        <img src={profile} alt="profile" />
-      </div>
-      <div className="author__content">
-        <div className="author__name" style={{ margin: "auto" }}>
-          <div className="line">
-            <label>
-              <span>zoetrope</span>
-            </label>
+    <aside className="sidebar col-lg-2 col-xl-2">
+      {/* // <aside className="sidebar col-md-4 col-lg-3 col-xl-2"> */}
+      <div className="author_profile">
+        <div className="author__avatar">
+          <img src={profile} alt="profile" />
+        </div>
+        <div className="author__content">
+          <div className="author__name" style={{ margin: "auto" }}>
+            <div className="line">
+              <label>
+                <span>zoetrope</span>
+              </label>
+            </div>
           </div>
         </div>
       </div>
