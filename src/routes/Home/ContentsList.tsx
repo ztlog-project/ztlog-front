@@ -108,10 +108,6 @@ export default function ContentsList() {
       <hr className="my-4" />
 
       <div className="d-flex justify-content-center mb-4">
-        {/* <Link to="#" className="btn btn-primary text-uppercase"> */}
-        {/* {" "} */}
-        {/* +{" "} */}
-        {/* </Link> */}
         <Paging />
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Pagination from "react-js-pagination";
 
 const Paging = () => {
@@ -12,7 +12,7 @@ const Paging = () => {
     <Pagination
       activePage={page}
       itemsCountPerPage={10}
-      totalItemsCount={450}
+      totalItemsCount={150}
       pageRangeDisplayed={5}
       prevPageText={"‹"}
       nextPageText={"›"}

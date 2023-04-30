@@ -52,7 +52,6 @@ export default function SideBar() {
               id="github"
               data-tooltip-text="github.com/zoetrope56"
             >
-              {/* <i className="fa-brands fa-github"></i> */}
               <FontAwesomeIcon icon={faGithub} />
               <label htmlFor="github"> GitHub</label>
             </Link>
@@ -64,7 +63,6 @@ export default function SideBar() {
               id="location"
               data-tooltip-text="twitter.com/zoetrope_dev"
             >
-              {/* <i className="fa-brands fa-twitter"></i> */}
               <FontAwesomeIcon icon={faTwitter} />
               <label htmlFor="location"> Twitter</label>
             </Link>

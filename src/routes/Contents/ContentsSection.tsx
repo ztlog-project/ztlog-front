@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTags } from "@fortawesome/free-solid-svg-icons";
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
+import sample from "../../pages/images/post-sample-image.jpg";
 
 export default function ContentsSection() {
   return (
@@ -75,6 +76,7 @@ export default function ContentsSection() {
           delicate, that if you touched it with a finger it would crumble and
           fall apart. Seeing this has to change a man.
         </p>
+        <img src={sample} alt="sample" />
         {/* <a href="#!"
               ><img
                 class="img-fluid"
