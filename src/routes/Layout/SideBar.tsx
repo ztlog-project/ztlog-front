@@ -58,10 +58,10 @@ export default function SideBar() {
           </li>
           <li>
             <Link
-              to="https://twitter.com/zoetrope_dev"
+              to="https://twitter.com/tromm_dev"
               target="_blank"
               id="location"
-              data-tooltip-text="twitter.com/zoetrope_dev"
+              data-tooltip-text="twitter.com/tromm_dev"
             >
               <FontAwesomeIcon icon={faTwitter} />
               <label htmlFor="location"> Twitter</label>
