@@ -1,4 +1,4 @@
-import profile from "../../pages/images/profile.png";
+import profile from "pages/images/profile.png";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faEnvelope } from "@fortawesome/free-solid-svg-icons";

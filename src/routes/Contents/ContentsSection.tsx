@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTags } from "@fortawesome/free-solid-svg-icons";
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
-import sample from "../../pages/images/post-sample-image.jpg";
+import sample from "pages/images/post-sample-image.jpg";
 
 export default function ContentsSection() {
   return (
