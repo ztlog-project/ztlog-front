@@ -3,23 +3,46 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTags } from "@fortawesome/free-solid-svg-icons";
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
 import Paging from "./Paging";
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function ContentsList() {
 
-  axios.get("http://127.0.0.1:8000/api/contents")
-    .then((response) => {
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
-    ;
+  const [ctnt, setCtnt] = useState<any[]>([]);
+
+  useEffect(() => {
+    axios.get("http://127.0.0.1:8000/api/contents")
+      .then((response) => {
+        setCtnt(response.data.results);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div className="col-md-10 col-lg-8 col-xl-7">
-      <div className="post-preview">
+      {ctnt && ctnt.map((e) => (
+
+        <div key={e.ctnt_no} className="post-preview">
+          <Link to="/contents">
+            <h2 className="post-title">{e.ctnt_title}</h2>
+            <h3 className="post-subtitle">{e.ctnt_subtitle}</h3>
+          </Link>
+          <div className="post-meta">
+            <p>
+              <FontAwesomeIcon icon={faCalendarDays} /> {e.inp_dttm}
+              <br />
+              <FontAwesomeIcon icon={faTags} /> Tags1, Tags2, Tags3
+            </p>
+          </div>
+          <hr className="my-4" />
+        </div>
+
+      ))}
+      {/* <div className="post-preview">
         <Link to="/contents">
+
           <h2 className="post-title">
             게시물 제목입니다. 제목은 이곳에 표시됩니다.
           </h2>
@@ -36,7 +59,7 @@ export default function ContentsList() {
           </p>
         </div>
       </div>
-      <hr className="my-4" />
+      <hr className="my-4" /> */}
 
       <div className="d-flex justify-content-center mb-4">
         <Paging />
