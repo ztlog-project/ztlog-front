@@ -8,17 +8,20 @@ import axios from "axios";
 
 export default function ContentsList() {
 
+  const url = "/contents?no=";
   const [ctnt, setCtnt] = useState<any[]>([]);
-
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(10);
 
   useEffect(() => {
     axios.get("http://127.0.0.1:8000/api/contents?page="+page)
       .then((response) => {
+
+        console.log(response.data);
+
         setPage(page)
         setCtnt(response.data.results);
-        setTotal(response.data.count)        
+        setTotal(response.data.count)
       })
       .catch(function (error) {
         console.log(error);
@@ -32,9 +35,8 @@ export default function ContentsList() {
   return (
     <div className="col-md-10 col-lg-8 col-xl-7">
       {ctnt && ctnt.map((e) => (
-
         <div key={e.ctnt_no} className="post-preview">
-          <Link to="/contents">
+          <Link to={url+e.ctnt_no}>
             <h2 className="post-title">{e.ctnt_title}</h2>
             <h3 className="post-subtitle">{e.ctnt_subtitle}</h3>
           </Link>
@@ -42,7 +44,7 @@ export default function ContentsList() {
             <p>
               <FontAwesomeIcon icon={faCalendarDays} /> {e.inp_dttm}
               <br />
-              <FontAwesomeIcon icon={faTags} /> Tags1, Tags2, Tags3
+              {/* <FontAwesomeIcon icon={faTags} /> Tags1, Tags2, Tags3 */}
             </p>
           </div>
           <hr className="my-4" />
