@@ -7,7 +7,7 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <div className="container px-3 px-lg-3 main-section">
+      <div className="wrapper container px-3 px-lg-3 main-section">
         <div className="row gx-4 gx-lg-5 justify-content-center">
           <SideBar />
           <Outlet />

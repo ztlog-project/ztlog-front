@@ -10,16 +10,16 @@ import axios from "axios";
 
 
 export default function ContentsSection() {
-  
+
   const location = useLocation();
   const params = new URLSearchParams(location.search);
 
   // console.log(params.get('no'));
   const [post, setPost] = useState({
-    ctnt_no: 0, 
+    ctnt_no: 0,
     ctnt_title: '',
     ctnt_body: '',
-    inp_dttm:''
+    inp_dttm: ''
   });
 
   // let p : any = {}
@@ -27,15 +27,7 @@ export default function ContentsSection() {
   useEffect(() => {
     axios.get("http://127.0.0.1:8000/api/content/" + params.get('no'))
       .then((response) => {
-        // console.log(response.data);
-
         setPost(Object.assign({}, response.data));
-
-        // post = Object.assign({}, post)
-        
-        // p = Object.assign({}, post)
-
-        // console.log(p)
       })
       .catch(function (error) {
         console.log(error);
@@ -46,34 +38,39 @@ export default function ContentsSection() {
     <div className="col-md-10 col-lg-8 col-xl-7">
       <div className="article">
         <div className="post-header">
-          <h1>{post.ctnt_title }</h1>
-          {/* <h2 className="subheader">
+          <h1>{post.ctnt_title}</h1>
+          <h2 className="subheader">
             Problems look mighty small from 150 miles up
-          </h2> */}
+          </h2>
         </div>
-        <div className="content-box" dangerouslySetInnerHTML={{__html:post.ctnt_body}}>
+        <div className="content-box" dangerouslySetInnerHTML={{ __html: post.ctnt_body }}>
           {/* {post.ctnt_body} */}
         </div>
-        {/* <img src={sample} alt="sample" /> */}
+        <img src={sample} alt="sample" />
         {/* <a href="#!"
               ><img
                 class="img-fluid"
                 src="../assets/img/post-sample-image.jpg"
                 alt="..."
             /></a> */}
-        {/* <span className="caption text-muted">
+        <span className="caption text-muted">
           To go places and do things that have never been done before – that’s
           what living is all about.
-        </span> */}
-        
-        {/* <p>
+        </span>
+
+        <p>
+          To go places and do things that have never been done before – that’s
+          what living is all about.
+
+          <br/>
+
           Placeholder text by
           <Link to="http://spaceipsum.com/">Space Ipsum</Link>
           &middot; Images by
           <Link to="https://www.flickr.com/photos/nasacommons/">
             NASA on The Commons
           </Link>
-        </p> */}
+        </p>
         <hr className="my-4" />
         <div className="post-footer">
           {/* <p className="meta">

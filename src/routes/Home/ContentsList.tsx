@@ -8,6 +8,14 @@ import axios from "axios";
 
 export default function ContentsList() {
 
+  const listWraper = {
+    height:"920px"
+  }
+
+  const prevewWraper = {
+    height:"837.3px"
+  }
+
   const url = "/contents?no=";
   const [ctnt, setCtnt] = useState<any[]>([]);
   const [page, setPage] = useState(1);
@@ -33,7 +41,8 @@ export default function ContentsList() {
   };
 
   return (
-    <div className="col-md-10 col-lg-8 col-xl-7">
+    <div className="col-md-10 col-lg-8 col-xl-7" style={listWraper}>
+      <div style={prevewWraper}>
       {ctnt && ctnt.map((e) => (
         <div key={e.ctnt_no} className="post-preview">
           <Link to={url+e.ctnt_no}>
@@ -51,11 +60,11 @@ export default function ContentsList() {
         </div>
 
       ))}
-
-      <div className="d-flex justify-content-center mb-4">
+      </div>
+      <div className="d-flex justify-content-center mb-4 pagnation">
         <Pagination
           activePage={page}
-          itemsCountPerPage={5}
+          itemsCountPerPage={6}
           totalItemsCount={total}
           pageRangeDisplayed={5}
           prevPageText={"‹"}
