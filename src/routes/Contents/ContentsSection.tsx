@@ -7,14 +7,12 @@ import sample from "pages/images/post-sample-image.jpg";
 import { useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
 import axios from "axios";
-
+import MarkdownPreview from '@uiw/react-markdown-preview';
 
 export default function ContentsSection() {
 
   const location = useLocation();
   const params = new URLSearchParams(location.search);
-
-  // console.log(params.get('no'));
   const [post, setPost] = useState({
     ctnt_no: 0,
     ctnt_title: '',
@@ -38,21 +36,17 @@ export default function ContentsSection() {
     <div className="col-md-10 col-lg-8 col-xl-7">
       <div className="article">
         <div className="post-header">
-          <h1>{post.ctnt_title}</h1>
-          <h2 className="subheader">
+          {/* <h1>{post.ctnt_title}</h1> */}
+          {/* <h2 className="subheader">
             Problems look mighty small from 150 miles up
-          </h2>
+          </h2> */}
         </div>
-        <div className="content-box" dangerouslySetInnerHTML={{ __html: post.ctnt_body }}>
-          {/* {post.ctnt_body} */}
+        <div className="content-box">
+          <br />
+          <MarkdownPreview source={post.ctnt_body} wrapperElement={{ "data-color-mode": "light" }} />
+          <br />
         </div>
         <img src={sample} alt="sample" />
-        {/* <a href="#!"
-              ><img
-                class="img-fluid"
-                src="../assets/img/post-sample-image.jpg"
-                alt="..."
-            /></a> */}
         <span className="caption text-muted">
           To go places and do things that have never been done before – that’s
           what living is all about.
@@ -62,7 +56,7 @@ export default function ContentsSection() {
           To go places and do things that have never been done before – that’s
           what living is all about.
 
-          <br/>
+          <br />
 
           Placeholder text by
           <Link to="http://spaceipsum.com/">Space Ipsum</Link>
