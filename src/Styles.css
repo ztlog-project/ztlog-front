@@ -92,6 +92,7 @@
 
 body {
   margin: 0;
+  height: 100vh;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
@@ -12193,7 +12194,7 @@ blockquote {
 }
 
 .listWraaper {
-  height: 920px;
+  height: 100%;
 }
 
 footer {
@@ -12405,13 +12406,13 @@ header.masthead .post-heading .meta a {
 }
 
 .post-preview > a > .post-title {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin-top: 1.875rem;
   margin-bottom: 0.625rem;
 }
 
 .post-preview > a > .post-subtitle {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 300;
   margin-bottom: 0.625rem;
 }
@@ -12426,9 +12427,13 @@ header.masthead .post-heading .meta a {
   text-decoration: none;
 }
 
+.post-preview > .post-meta > p {
+  margin: 5px 0px;
+}
+
 @media (min-width: 992px) {
   .post-preview > a > .post-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 }
 

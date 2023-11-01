@@ -9,11 +9,11 @@ import axios from "axios";
 export default function ContentsList() {
 
   const listWraper = {
-    height:"920px"
+    height:"1107px"
   }
 
   const prevewWraper = {
-    height:"837.3px"
+    height:"1010px"
   }
 
   const url = "/contents?no=";
@@ -51,9 +51,10 @@ export default function ContentsList() {
           </Link>
           <div className="post-meta">
             <p>
+            <FontAwesomeIcon icon={faTags} /> Tags1, Tags2, Tags3
+            </p>
+            <p>
               <FontAwesomeIcon icon={faCalendarDays} /> {e.inp_dttm}
-              <br />
-              {/* <FontAwesomeIcon icon={faTags} /> Tags1, Tags2, Tags3 */}
             </p>
           </div>
           <hr className="my-4" />
