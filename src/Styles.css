@@ -12379,8 +12379,15 @@ header.masthead .post-heading .meta a {
 }
 
 .post-footer {
-  margin-bottom: 20px;
+  margin: 20px 0px;
   /* text-align: center; */
+}
+
+.post-footer > p {
+  margin: 10px 0px;
+  font-size: 14px;
+  color: #808080;
+
 }
 /* .post-footer> *, .entry-footer a {
   color: #696969;
