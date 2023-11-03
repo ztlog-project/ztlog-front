@@ -8,13 +8,12 @@ import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import Comments from "./Comments";
+import dayjs from 'dayjs';
 
 export default function ContentsSection() {
-  const commentsEl = useRef<HTMLDivElement>(null);
-  const theme = 'dark_dimmed';
-
   const location = useLocation();
   const params = new URLSearchParams(location.search);
+  const [inpDate, setInpDate] = useState('');
   const [post, setPost] = useState({
     ctnt_no: 0,
     ctnt_title: '',
@@ -22,35 +21,17 @@ export default function ContentsSection() {
     inp_dttm: ''
   });
 
+
   useEffect(() => {
     axios.get("http://127.0.0.1:8000/api/content/" + params.get('no'))
       .then((response) => {
         setPost(Object.assign({}, response.data));
-
-        const scriptEl = document.createElement("script");
-        scriptEl.async = true;
-        scriptEl.src = "https://giscus.app/client.js";
-        scriptEl.setAttribute("repo", "zoetrope56/devlog-comments");
-        scriptEl.setAttribute("repo-id", "R_kgDOKnxXWg");
-        scriptEl.setAttribute("data-strict", "0");
-        scriptEl.setAttribute("data-reactions-enabled", "1");
-        scriptEl.setAttribute("data-emit-metadata", "0");
-        scriptEl.setAttribute("data-input-position", "bottom");
-        scriptEl.setAttribute("data-theme", "light");
-        scriptEl.setAttribute("data-lang", "ko");
-        scriptEl.setAttribute("crossorigin", "anonymous");
-        commentsEl.current?.appendChild(scriptEl);
-
+        setInpDate(dayjs(response.data.inp_dttm).format('YYYY년 M월 D일 h시 m분'));
       })
       .catch(function (error) {
         console.log(error);
       });
   }, []);
-
-  useEffect(() => {
-    const iframe = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
-    iframe?.contentWindow?.postMessage({ giscus: { setConfig: { theme } } }, 'https://giscus.app');
-  })
 
   return (
     <div className="col-md-10 col-lg-8 col-xl-7">
@@ -125,7 +106,7 @@ export default function ContentsSection() {
             <FontAwesomeIcon icon={faTags} /> Tags1, Tags2, Tags3
           </p>
           <p className="meta">
-            <FontAwesomeIcon icon={faCalendarDays} /> {post.inp_dttm}
+            <FontAwesomeIcon icon={faCalendarDays} /> {inpDate}
           </p>
         </div>
         <hr className="my-4" />

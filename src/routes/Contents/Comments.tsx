@@ -17,5 +17,4 @@ export default function Comments() {
         loading='lazy'
         />
     );
-
 }
