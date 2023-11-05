@@ -1,12 +1,8 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-/* eslint-disable jsx-a11y/alt-text */
+
 import photo from 'pages/images/photo.png';
 
 export default function MyPage() {
-
-    // const listWraper = {
-    //     height: "960px"
-    // }
 
     return (
         <div className="col-md-10 col-lg-8 col-xl-7">
@@ -14,15 +10,14 @@ export default function MyPage() {
                 <div className="col-md-6 col-lg-7 col-xl-7" style={{ margin: 'auto 0px', padding: '30px' }}>
                     <img src={photo} alt="photo" style={{ width: '100%', borderRadius: '60px' }} />
                 </div>
-                <div className="col-md-6 col-lg-7 col-xl-7" style={{ margin: 'auto 0px', padding: '30px' }}>
+                <div style={{ margin: 'auto 0px', padding: '30px' }}>
                     <div className='profile'>
                         <h1>🙋🏻‍♀️ 최예지 Choi Yeji</h1>
                         <h4>Backend Developer</h4>
                         <p>
                             안녕하세요! <br />
                             웹 백엔드 개발자 최예지입니다. <br />
-                            자바, 스프링 프레임워크 이용한 웹 개발을 주로 하고 있습니다. <br />
-                            반갑습니다 😆
+                            자바, 스프링 프레임워크 이용한 웹 개발을 주로 하고 있습니다. 반갑습니다 😆
                         </p>
                     </div>
                     <br />

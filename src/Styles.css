@@ -12124,14 +12124,19 @@ blockquote {
 }
 
 .profile > h1 {
-  font-size: 1.5rem
+  font-family: "IBM Plex Sans KR";
+  font-size: 1.5rem;
+  font-weight: 400;
 }
 
 .profile > h4 {
-  font-size: 1.125rem
+  font-family: "IBM Plex Sans KR";
+  font-size: 1.125rem;
+  font-weight: 400;
 }
 
 .profile > p {
+  font-family: "IBM Plex Sans KR";
   font-size: 0.875rem;
   margin-top: 1rem;
   margin-bottom: 0px;
@@ -12141,17 +12146,23 @@ blockquote {
   font-family: "IBM Plex Sans KR";
   margin: 10px 0px;
   padding: 20px 0px;
+  font-weight: 400;
 }
 
 .myInfo > h1 {
+  font-family: "IBM Plex Sans KR";
   font-size: 1.5rem;
+  font-weight: 400;
 }
 
 .myInfo > h4 {
+  font-family: "IBM Plex Sans KR";
   font-size: 1.125rem;
+  font-weight: 400;
 }
 
 .myInfo > p {
+  font-family: "IBM Plex Sans KR";
   font-size: 0.875rem;
   margin: 5px;
 }

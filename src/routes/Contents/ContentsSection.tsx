@@ -22,7 +22,7 @@ export default function ContentsSection() {
 
 
   useEffect(() => {
-    axios.get("http://3.38.255.56:8000/api/content/" + params.get('no'))
+    axios.get("https://ztlogapi.com/api/content/" + params.get('no'))
       .then((response) => {
         setPost(Object.assign({}, response.data));
         setInpDate(dayjs(response.data.inp_dttm).format('YYYY년 M월 D일 h시 m분'));
