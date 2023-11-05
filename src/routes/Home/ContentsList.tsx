@@ -25,7 +25,7 @@ export default function ContentsList() {
   const [total, setTotal] = useState(10);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/contents?page=" + page)
+    axios.get("http://3.38.255.56:8000/api/contents?page=" + page)
       .then((response) => {
         setPage(page)
         setCtnt(response.data.results);

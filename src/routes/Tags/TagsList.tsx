@@ -10,7 +10,7 @@ export default function TagList() {
     const [tags, setTags] = useState<any[]>([]);
 
     useEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/tags")
+        axios.get("http://3.38.255.56:8000/api/tags")
             .then((response) => {
                 setTags(response.data);
             })
