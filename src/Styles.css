@@ -12117,6 +12117,45 @@ blockquote {
   font-weight: lighter;
 }
 
+.profile {
+  font-family: "IBM Plex Sans KR";
+  /* margin: 10px 0px; */
+  padding: 0px;
+}
+
+.profile > h1 {
+  font-size: 1.5rem
+}
+
+.profile > h4 {
+  font-size: 1.125rem
+}
+
+.profile > p {
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  margin-bottom: 0px;
+}
+
+.myInfo {
+  font-family: "IBM Plex Sans KR";
+  margin: 10px 0px;
+  padding: 20px 0px;
+}
+
+.myInfo > h1 {
+  font-size: 1.5rem;
+}
+
+.myInfo > h4 {
+  font-size: 1.125rem;
+}
+
+.myInfo > p {
+  font-size: 0.875rem;
+  margin: 5px;
+}
+
 /* .main-section {
   height: 100vh;
 } */
