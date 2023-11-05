@@ -30,8 +30,7 @@ export default function ContentsList() {
         setPage(page)
         setCtnt(response.data.results);
         setTotal(response.data.count);
-        setInpDate(dayjs(response.data.inp_dttm).format('YYYY년 M월 D일 h시 m분'));
-
+        setInpDate(dayjs(response.data.results[0].inp_dttm).format('YYYY년 M월 D일 h시 m분'));
       })
       .catch(function (error) {
         console.log(error);
