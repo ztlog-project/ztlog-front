@@ -26,8 +26,8 @@ export default function ContentsList() {
   const [total, setTotal] = useState(10);
 
   useEffect(() => {
-    // axios.get("https://ztlogapi.com/api/contents?page=" + page)
-    axios.get("http://localhost:8000/api/contents?page=" + page)
+    axios.get("https://ztlogapi.com/api/contents?page=" + page)
+    // axios.get("http://localhost:8000/api/contents?page=" + page)
       .then((response) => {
         setPage(page)
         setCtnt(response.data.results);
