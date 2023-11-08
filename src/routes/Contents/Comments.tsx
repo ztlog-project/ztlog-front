@@ -14,7 +14,7 @@ export default function Comments() {
     scriptElem.setAttribute('data-repo-id', 'R_kgDOKnxXWg');
     scriptElem.setAttribute('data-category', 'General');
     scriptElem.setAttribute('data-category-id', 'DIC_kwDOKnxXWs4Camnw');
-    scriptElem.setAttribute('data-mapping', 'pathname');
+    scriptElem.setAttribute('data-mapping', 'url');
     scriptElem.setAttribute('data-strict', '0');
     scriptElem.setAttribute('data-reactions-enabled', '1');
     scriptElem.setAttribute('data-emit-metadata', '0');
