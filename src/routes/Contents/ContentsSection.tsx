@@ -17,7 +17,8 @@ export default function ContentsSection() {
     ctnt_no: 0,
     ctnt_title: '',
     ctnt_body: '',
-    inp_dttm: ''
+    inp_dttm: '',
+    ctnt_mst: { tags: [] }
   });
 
 
@@ -26,6 +27,9 @@ export default function ContentsSection() {
       .then((response) => {
         setPost(Object.assign({}, response.data));
         setInpDate(dayjs(response.data.inp_dttm).format('YYYY년 M월 D일 h시 m분'));
+
+
+        console.log(response.data)
       })
       .catch(function (error) {
         console.log(error);
@@ -47,7 +51,9 @@ export default function ContentsSection() {
         </div>
         <div className="post-footer">
           <p className="meta">
-            <FontAwesomeIcon icon={faTags} /> Tags1, Tags2, Tags3
+            <FontAwesomeIcon icon={faTags} /> {post.ctnt_mst.tags.map(function (el: any) {
+              return el + ', '
+            })}
           </p>
           <p className="meta">
             <FontAwesomeIcon icon={faCalendarDays} /> {inpDate}

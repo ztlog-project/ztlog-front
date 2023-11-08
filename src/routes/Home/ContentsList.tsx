@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTags } from "@fortawesome/free-solid-svg-icons";
@@ -25,12 +26,15 @@ export default function ContentsList() {
   const [total, setTotal] = useState(10);
 
   useEffect(() => {
-    axios.get("https://ztlogapi.com/api/contents?page=" + page)
+    // axios.get("https://ztlogapi.com/api/contents?page=" + page)
+    axios.get("http://localhost:8000/api/contents?page=" + page)
       .then((response) => {
         setPage(page)
         setCtnt(response.data.results);
         setTotal(response.data.count);
         setInpDate(dayjs(response.data.results[0].inp_dttm).format('YYYY년 M월 D일 h시 m분'));
+
+        console.log(response.data.results)
       })
       .catch(function (error) {
         console.log(error);
@@ -52,7 +56,9 @@ export default function ContentsList() {
             </Link>
             <div className="post-meta">
               <p>
-                <FontAwesomeIcon icon={faTags} /> Tags1, Tags2, Tags3
+                <FontAwesomeIcon icon={faTags} /> {e.tags.map(function(el: any) {
+                  return el + ', '
+                })}
               </p>
               <p>
                 <FontAwesomeIcon icon={faCalendarDays} /> {inpDate}
