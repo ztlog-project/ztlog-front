@@ -12,7 +12,6 @@ import dayjs from 'dayjs';
 export default function ContentsSection() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
-  const [inpDate, setInpDate] = useState('');
   const [post, setPost] = useState({
     ctnt_no: 0,
     ctnt_title: '',
@@ -26,10 +25,6 @@ export default function ContentsSection() {
     axios.get("https://ztlogapi.com/api/content/" + params.get('no'))
       .then((response) => {
         setPost(Object.assign({}, response.data));
-        setInpDate(dayjs(response.data.inp_dttm).format('YYYY년 M월 D일 h시 m분'));
-
-
-        console.log(response.data)
       })
       .catch(function (error) {
         console.log(error);
@@ -56,7 +51,7 @@ export default function ContentsSection() {
             })}
           </p>
           <p className="meta">
-            <FontAwesomeIcon icon={faCalendarDays} /> {inpDate}
+            <FontAwesomeIcon icon={faCalendarDays} /> {dayjs(post.inp_dttm).format('YYYY년 M월 D일 h시 m분')}
           </p>
         </div>
         <hr className="my-4" />

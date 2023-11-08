@@ -10,8 +10,6 @@ import dayjs from 'dayjs';
 
 export default function ContentsList() {
 
-  const [inpDate, setInpDate] = useState('');
-
   const listWraper = {
     height: "1050px"
   }
@@ -32,9 +30,6 @@ export default function ContentsList() {
         setPage(page)
         setCtnt(response.data.results);
         setTotal(response.data.count);
-        setInpDate(dayjs(response.data.results[0].inp_dttm).format('YYYY년 M월 D일 h시 m분'));
-
-        console.log(response.data.results)
       })
       .catch(function (error) {
         console.log(error);
@@ -61,7 +56,7 @@ export default function ContentsList() {
                 })}
               </p>
               <p>
-                <FontAwesomeIcon icon={faCalendarDays} /> {inpDate}
+                <FontAwesomeIcon icon={faCalendarDays} /> {dayjs(e.inp_dttm).format('YYYY년 M월 D일 h시 m분')}
               </p>
             </div>
             <hr className="my-4" />
