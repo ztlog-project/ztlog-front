@@ -47,7 +47,7 @@ export default function ContentsSection() {
         <div className="post-footer">
           <p className="meta">
             <FontAwesomeIcon icon={faTags} /> {post.ctnt_mst.tags.map(function (el: any) {
-              return el + ', '
+              return el + ' '
             })}
           </p>
           <p className="meta">

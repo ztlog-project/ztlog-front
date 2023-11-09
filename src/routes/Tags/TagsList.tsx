@@ -23,7 +23,7 @@ export default function TagList() {
         <div className="col-md-10 col-lg-8 col-xl-7" style={listWraper}>
             <div className="post-meta">
             {tags && tags.map((e) => (
-                <Link to="#" key={e.tag_no} className="tag">{e.tag_name} <span>1</span> </Link>
+                <Link to="#" key={e.tag_no} className="tag">{e.tag_name} <span>{e.tag_count}</span> </Link>
                 ))}
             </div>
         </div>

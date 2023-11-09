@@ -52,7 +52,7 @@ export default function ContentsList() {
             <div className="post-meta">
               <p>
                 <FontAwesomeIcon icon={faTags} /> {e.tags.map(function(el: any) {
-                  return el + ', '
+                  return el + ' '
                 })}
               </p>
               <p>
